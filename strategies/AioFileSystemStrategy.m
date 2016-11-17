@@ -1,4 +1,4 @@
-classdef VsaFileSystemStrategy < VsaLocationStrategy
+classdef AioFileSystemStrategy < AioLocationStrategy
     % Work with assets on the local file system.
     
     properties
@@ -6,7 +6,7 @@ classdef VsaFileSystemStrategy < VsaLocationStrategy
     end
     
     methods
-        function obj = VsaFileSystemStrategy(varargin)
+        function obj = AioFileSystemStrategy(varargin)
             parser = MipInputParser();
             parser.addProperties(obj);
             parser.parseMagically(obj);

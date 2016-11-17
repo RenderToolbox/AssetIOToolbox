@@ -1,4 +1,4 @@
-function location = vsaLocation(varargin)
+function location = aioLocation(varargin)
 % Make a well-formed struct to represent a location with assets.
 %
 % The idea is to represent a location that we want, using a consistent
@@ -6,13 +6,13 @@ function location = vsaLocation(varargin)
 % can check for required fields.  We can also put lots of records together
 % into a struct array, which is easier to work with than a cell array.
 %
-% location = vsaLocation() creates a placeholder record with the correct
+% location = aioLocation() creates a placeholder record with the correct
 % fields.
 %
-% location = vsaLocation( ... name, value) fills in the record with
+% location = aioLocation( ... name, value) fills in the record with
 % fields based on the given names-value pairs.  The recognized names are:
 %   - 'name' -- unique name to identify the location.
-%   - 'strategy' -- name of a class that extends VsaLocationStrategy
+%   - 'strategy' -- name of a class that extends AioLocationStrategy
 %   - 'config' -- struct of parameters to pass to the strategy constructor
 %
 % Unrecognized names and values will be added as fileds of the config

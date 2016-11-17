@@ -1,33 +1,33 @@
-function strategy = vsaChooseStrategy(location, varargin)
+function strategy = aioChooseStrategy(location, varargin)
 %% Choose a strategy implementation based on the given location name.
 %
-% strategy = vsaChooseStrategy(location) chooses and instantiates a
-% VsaLocationStrategy implementation based on the given location name,
+% strategy = aioChooseStrategy(location) chooses and instantiates a
+% AioLocationStrategy implementation based on the given location name,
 % using default preferences found in getpref('VirtualScenesAssets').
 %
-% vsaChooseStrategy( ... 'vsaPrefs', vsaPrefs) specify an explicit
+% aioChooseStrategy( ... 'aioPrefs', aioPrefs) specify an explicit
 % preferences struct to use, instead of getpref('VirtualScenesAssets').
-% vsaPrefs.locations must contain a struct array of locations, as returned
-% from vsaLocation().
+% aioPrefs.locations must contain a struct array of locations, as returned
+% from aioLocation().
 %
-% strategy = vsaChooseStrategy(location, varargin)
+% strategy = aioChooseStrategy(location, varargin)
 %
 % 2016 RenderToolbox team
 
 parser = MipInputParser();
 parser.addRequired('location', @ischar);
-parser.addAllPreferences('vsaPrefs', 'VirtualScenesAssets', []);
+parser.addAllPreferences('aioPrefs', 'VirtualScenesAssets', []);
 parser.parseMagically('caller');
 
 
 %% Choose an asset location by name.
-names = {vsaPrefs.locations.name};
+names = {aioPrefs.locations.name};
 isMatch = strcmp(names, location);
 if ~any(isMatch);
-    error('vsaChooseStrategy:noSuchLocation', ...
+    error('aioChooseStrategy:noSuchLocation', ...
         'No location named "%s" could be found.', location);
 end
-location = vsaPrefs.locations(isMatch);
+location = aioPrefs.locations(isMatch);
 
 
 %% Instantiate the strategy for the chosen location.

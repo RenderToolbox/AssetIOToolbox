@@ -1,13 +1,13 @@
-classdef VsaLocalTests < matlab.unittest.TestCase
+classdef AioLocalTests < matlab.unittest.TestCase
     % Test listing and getting some fixture assets in a temp folder.
     
     properties
-        tempFolder = fullfile(tempdir(), 'VsaLocalTests');
-        fixtureFolder = fullfile(vsaRoot(), 'test', 'fixture', 'local', '*');
-        vsaPrefs = struct('locations', vsaLocation( ...
+        tempFolder = fullfile(tempdir(), 'AioLocalTests');
+        fixtureFolder = fullfile(aioRoot(), 'test', 'fixture', 'local', '*');
+        aioPrefs = struct('locations', aioLocation( ...
             'name', 'local', ...
-            'strategy', 'VsaFileSystemStrategy', ...
-            'baseDir', fullfile(tempdir(), 'VsaLocalTests')));
+            'strategy', 'AioFileSystemStrategy', ...
+            'baseDir', fullfile(tempdir(), 'AioLocalTests')));
     end
     
     methods (TestClassSetup)
@@ -25,8 +25,8 @@ classdef VsaLocalTests < matlab.unittest.TestCase
     methods (Test)
         
         function testListTypes(testCase)
-            types = vsaListTypes('locations', {'local'}, ...
-                'vsaPrefs', testCase.vsaPrefs);
+            types = aioListTypes('locations', {'local'}, ...
+                'aioPrefs', testCase.aioPrefs);
             sortedTypes = sort(types);
             expectedTypes = { ...
                 'BaseScenes', 'Illuminants', 'IndicesOfRefraction', ...
@@ -35,63 +35,63 @@ classdef VsaLocalTests < matlab.unittest.TestCase
         end
         
         function testListExistingNames(testCase)
-            names = vsaListAssets('BaseScenes', ...
+            names = aioListAssets('BaseScenes', ...
                 'locations', {'local'}, ...
-                'vsaPrefs', testCase.vsaPrefs);
+                'aioPrefs', testCase.aioPrefs);
             sortedNames = sort(names);
             expectedNames = {'CheckerBoard'};
             testCase.assertEqual(sortedNames, expectedNames);
         end
         
         function testListBogusNames(testCase)
-            names = vsaListAssets('Bogus', ...
+            names = aioListAssets('Bogus', ...
                 'locations', {'local'}, ...
-                'vsaPrefs', testCase.vsaPrefs);
+                'aioPrefs', testCase.aioPrefs);
             testCase.assertEmpty(names);
         end
         
         function testGetExistingInfo(testCase)
-            [info, location] = vsaGetInfo('BaseScenes', 'CheckerBoard', ...
+            [info, location] = aioGetInfo('BaseScenes', 'CheckerBoard', ...
                 'locations', {'local'}, ...
-                'vsaPrefs', testCase.vsaPrefs);
+                'aioPrefs', testCase.aioPrefs);
             testCase.assertEqual(location, 'local');
             testCase.assertNotEmpty(info);
             testCase.assertInstanceOf(info, 'struct');
         end
         
         function testGetBogusInfo(testCase)
-            [info, location] = vsaGetInfo('Bogus', 'CheckerBoard', ...
+            [info, location] = aioGetInfo('Bogus', 'CheckerBoard', ...
                 'locations', {'local'}, ...
-                'vsaPrefs', testCase.vsaPrefs);
+                'aioPrefs', testCase.aioPrefs);
             testCase.assertEmpty(info);
             testCase.assertEmpty(location);
             
-            [info, location] = vsaGetInfo('BaseScenes', 'Bogus', ...
+            [info, location] = aioGetInfo('BaseScenes', 'Bogus', ...
                 'locations', {'local'}, ...);
-                'vsaPrefs', testCase.vsaPrefs);
+                'aioPrefs', testCase.aioPrefs);
             testCase.assertEmpty(info);
             testCase.assertEmpty(location);
         end
         
         function testGetExistingFiles(testCase)
-            [files, location] = vsaGetFiles('BaseScenes', 'CheckerBoard', ...
+            [files, location] = aioGetFiles('BaseScenes', 'CheckerBoard', ...
                 'locations', {'local'}, ...
-                'vsaPrefs', testCase.vsaPrefs);
+                'aioPrefs', testCase.aioPrefs);
             testCase.assertEqual(location, 'local');
             testCase.assertNotEmpty(files);
             testCase.assertInstanceOf(files, 'cell');
         end
         
         function testGetBogusFiles(testCase)
-            [files, location] = vsaGetFiles('Bogus', 'CheckerBoard', ...
+            [files, location] = aioGetFiles('Bogus', 'CheckerBoard', ...
                 'locations', {'local'}, ...
-                'vsaPrefs', testCase.vsaPrefs);
+                'aioPrefs', testCase.aioPrefs);
             testCase.assertEmpty(files);
             testCase.assertEmpty(location);
             
-            [files, location] = vsaGetFiles('BaseScenes', 'Bogus', ...
+            [files, location] = aioGetFiles('BaseScenes', 'Bogus', ...
                 'locations', {'local'}, ...
-                'vsaPrefs', testCase.vsaPrefs);
+                'aioPrefs', testCase.aioPrefs);
             testCase.assertEmpty(files);
             testCase.assertEmpty(location);
         end

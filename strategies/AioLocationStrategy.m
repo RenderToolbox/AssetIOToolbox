@@ -1,4 +1,4 @@
-classdef VsaLocationStrategy < handle
+classdef AioLocationStrategy < handle
     % Abstract interface for working with assets at different locations.
     
     properties
@@ -34,7 +34,7 @@ classdef VsaLocationStrategy < handle
                         assetFiles = obj.getFiles(assetType, assetName);
                         
                     case 'error'
-                        error('VsaLocationStrategy:putConflict', ...
+                        error('AioLocationStrategy:putConflict', ...
                             'Asset with type <%s> and name <%s> already exists at location <%s>.', ...
                             assetType, assetName, obj.location);
                         
