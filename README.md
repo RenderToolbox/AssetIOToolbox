@@ -2,7 +2,7 @@
 Data access API for digital assets stored in multiple locations.
 
 # Overview
-AssetIOToolbox is a set of utilities for storing and retrieving digital assets, like data files and metadata about data files.  It establishes a convention for how the assets should be organized, allowing the same API to be use for assets across multiple configured locations.
+AssetIOToolbox is a set of utilities for storing and retrieving digital assets, like data files and metadata about data files.  It establishes a convention for how the assets should be organized, allowing the same API to be used for assets across multiple configured locations.
 
 # Installation
 The best way to get AssetIOToolbox is to use the [ToolboxToolbox](https://github.com/ToolboxHub/ToolboxToolbox).
