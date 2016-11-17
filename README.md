@@ -42,7 +42,7 @@ locations =
     'test'    'test'    'test'    'test'    'test'
 ```
 
-The utility [aioListAssets()](api/aioListAssets.m) helps navigate the assets within each type.  It reports the names of available assets for a given type, and the location where each asset was found.  This example shows only one results, names `CheckerBoard`.  In general, there could be many results.
+The utility [aioListAssets()](api/aioListAssets.m) helps navigate the assets within each type.  It reports the names of available assets for a given type, and the location where each asset was found.  This example shows only one result, named `CheckerBoard`.  In general there could be many results.
 ```
 >> [names, locations] = aioListAssets('BaseScenes')
 names = 
