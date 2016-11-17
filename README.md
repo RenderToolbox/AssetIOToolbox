@@ -29,7 +29,7 @@ AssetIOToolbox uses two levels of organization for assets: each asset has a "typ
 
 Each asset may contain several files, including:
   - an "info" file which contains any data or metadata for the asset
-  - zero or more data files of other types, like 3D models, textures, etc.
+  - zero or more data files of any type
   - zero or more "extra" files, like a readme, license notices, etc.
 
 ## Listing types and names
