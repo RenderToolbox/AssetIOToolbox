@@ -7,10 +7,10 @@ function [types, typeLocations] = aioListTypes(varargin)
 %
 % aioListTypes( ... 'locations', locations) specify a cell array of
 % locations where to try to list asset types, in the given order.  The
-% default is taken from getpref('VirtualScenesAssets').
+% default is taken from getpref('AssetIOToolbox').
 %
 % aioListTypes( ... 'aioPrefs', aioPrefs) specify an explicit
-% preferences struct to use, instead of getpref('VirtualScenesAssets').
+% preferences struct to use, instead of getpref('AssetIOToolbox').
 %
 % [types, typeLocations] = aioListTypes(varargin)
 %
@@ -18,7 +18,7 @@ function [types, typeLocations] = aioListTypes(varargin)
 
 parser = MipInputParser();
 parser.addParameter('locations', {}, @iscellstr);
-parser.addAllPreferences('aioPrefs', 'VirtualScenesAssets', []);
+parser.addAllPreferences('aioPrefs', 'AssetIOToolbox', []);
 parser.parseMagically('caller');
 
 if isempty(locations)

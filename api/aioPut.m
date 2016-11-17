@@ -17,10 +17,10 @@ function [assetInfo, assetFiles] = aioPut(assetType, assetName, varargin)
 %
 % aioPut( ... 'location', location) specifies a specific location for the
 % new asset.  Must be the name of one of the locations found in
-% getpref('VirtualScenesAssets').
+% getpref('AssetIOToolbox').
 %
 % aioPut( ... 'aioPrefs', aioPrefs) specify an explicit
-% preferences struct to use, instead of getpref('VirtualScenesAssets').
+% preferences struct to use, instead of getpref('AssetIOToolbox').
 %
 % aioPut( ... 'ifConflict', ifConflict) specifies what to do in case an
 % asset already exists with the same assetType and assetName, at the given
@@ -41,7 +41,7 @@ parser.addParameter('files', {}, @iscellstr);
 parser.addParameter('extras', {}, @iscellstr);
 parser.addParameter('location', '',@ischar);
 parser.addParameter('ifConflict', 'error', MipInputParser.isAny('skip', 'error', 'merge', 'replace'));
-parser.addAllPreferences('aioPrefs', 'VirtualScenesAssets', []);
+parser.addAllPreferences('aioPrefs', 'AssetIOToolbox', []);
 parser.parseMagically('caller');
 
 if isempty(location)

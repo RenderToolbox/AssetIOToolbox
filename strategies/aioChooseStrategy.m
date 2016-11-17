@@ -3,10 +3,10 @@ function strategy = aioChooseStrategy(location, varargin)
 %
 % strategy = aioChooseStrategy(location) chooses and instantiates a
 % AioLocationStrategy implementation based on the given location name,
-% using default preferences found in getpref('VirtualScenesAssets').
+% using default preferences found in getpref('AssetIOToolbox').
 %
 % aioChooseStrategy( ... 'aioPrefs', aioPrefs) specify an explicit
-% preferences struct to use, instead of getpref('VirtualScenesAssets').
+% preferences struct to use, instead of getpref('AssetIOToolbox').
 % aioPrefs.locations must contain a struct array of locations, as returned
 % from aioLocation().
 %
@@ -16,7 +16,7 @@ function strategy = aioChooseStrategy(location, varargin)
 
 parser = MipInputParser();
 parser.addRequired('location', @ischar);
-parser.addAllPreferences('aioPrefs', 'VirtualScenesAssets', []);
+parser.addAllPreferences('aioPrefs', 'AssetIOToolbox', []);
 parser.parseMagically('caller');
 
 

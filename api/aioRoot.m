@@ -1,7 +1,7 @@
 function rootPath = aioRoot()
-%% Get the path to VirtualScenesAssets.
+%% Get the path to AssetIOToolbox.
 %
-% rootPath = aioRoot() returns the absolute path to VirtualScenesAssets,
+% rootPath = aioRoot() returns the absolute path to AssetIOToolbox,
 % based on the location of this file, aioRoot.m.
 %
 % 2016 RenderToolbox team

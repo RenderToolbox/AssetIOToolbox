@@ -8,10 +8,10 @@ function [assetInfo, location] = aioGetInfo(assetType, assetName, varargin)
 %
 % aioGetInfo( ... 'locations', locations) specify a cell array of
 % locations where to try to get assets, in the given order.  The default
-% is taken from getpref('VirtualScenesAssets').
+% is taken from getpref('AssetIOToolbox').
 %
 % aioGetInfo( ... 'aioPrefs', aioPrefs) specify an explicit
-% preferences struct to use, instead of getpref('VirtualScenesAssets').
+% preferences struct to use, instead of getpref('AssetIOToolbox').
 %
 % [assetInfo, location] = aioGetInfo(assetType, assetName, varargin)
 %
@@ -21,7 +21,7 @@ parser = MipInputParser();
 parser.addRequired('assetType', @ischar);
 parser.addRequired('assetName', @ischar);
 parser.addParameter('locations', {}, @iscellstr);
-parser.addAllPreferences('aioPrefs', 'VirtualScenesAssets', []);
+parser.addAllPreferences('aioPrefs', 'AssetIOToolbox', []);
 parser.parseMagically('caller');
 
 if isempty(locations)

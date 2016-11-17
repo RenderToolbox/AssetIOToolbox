@@ -12,10 +12,10 @@ function [assetFiles, location] = aioGetFiles(assetType, assetName, varargin)
 %
 % aioGetFiles( ... 'locations', locations) specify a cell array of
 % locations where to try to get assets, in the given order.  The default
-% is taken from getpref('VirtualScenesAssets').
+% is taken from getpref('AssetIOToolbox').
 %
 % aioGetFiles( ... 'aioPrefs', aioPrefs) specify an explicit
-% preferences struct to use, instead of getpref('VirtualScenesAssets').
+% preferences struct to use, instead of getpref('AssetIOToolbox').
 %
 % [assetFiles, location] = aioGetFiles(assetType, assetName, varargin)
 %
@@ -27,7 +27,7 @@ parser.addRequired('assetName', @ischar);
 parser.addParameter('fullPaths', true, @islogical);
 parser.addParameter('nameFilter', '', @ischar);
 parser.addParameter('locations', {}, @iscellstr);
-parser.addAllPreferences('aioPrefs', 'VirtualScenesAssets', []);
+parser.addAllPreferences('aioPrefs', 'AssetIOToolbox', []);
 parser.parseMagically('caller');
 
 if isempty(locations)

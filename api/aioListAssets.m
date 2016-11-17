@@ -7,17 +7,17 @@ function [assets, assetLocations] = aioListAssets(assetType, varargin)
 %
 % aioListAssets( ... 'locations', locations) specify a cell array of
 % locations where to try to list assets, in the given order.  The default
-% is taken from getpref('VirtualScenesAssets').
+% is taken from getpref('AssetIOToolbox').
 %
 % aioListAssets( ... 'aioPrefs', aioPrefs) specify an explicit
-% preferences struct to use, instead of getpref('VirtualScenesAssets').
+% preferences struct to use, instead of getpref('AssetIOToolbox').
 %
 % 2016 RenderToolbox team
 
 parser = MipInputParser();
 parser.addRequired('assetType', @ischar);
 parser.addParameter('locations', {}, @iscellstr);
-parser.addAllPreferences('aioPrefs', 'VirtualScenesAssets', []);
+parser.addAllPreferences('aioPrefs', 'AssetIOToolbox', []);
 parser.parseMagically('caller');
 
 if isempty(locations)
